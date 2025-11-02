@@ -148,11 +148,11 @@ if horas_estimadas > 0 and honorario > 0:
         # 📘 Interpretação dos Indicadores
         st.markdown("### 📘 Interpretação dos Indicadores")
         st.markdown(f"""
-        - **💰 Margem de Contribuição ({margem_contribuicao:.2f}%)** — percentual do honorário líquido que sobra após cobrir custos fixos e variáveis.  
-          > Fórmula: `(Honorário Líquido - Custos Totais) ÷ Honorário Líquido × 100`
+        - **💰 Margem de Contribuição ({margem_contribuicao:.2f}%)** — percentual do honorário bruto que sobra após cobrir custos fixos e variáveis.  
+          > Fórmula: `(Honorário Bruto - Custos Totais) ÷ Honorário Bruto × 100`
 
         - **💵 Lucro Líquido ({brl(lucro_liquido)})** — resultado final após desconto e custos.  
-          > Fórmula: `Honorário Líquido - Custos Totais`
+          > Fórmula: `Honorário Bruto - Custos Totais`
 
         - **⚙️ Custo Total ({brl(custo_total)})** — soma de custos fixos e variáveis ajustados pela complexidade.  
           > Fórmula: `(Custos Fixos + Custos Variáveis) × Fator de Complexidade`
@@ -160,7 +160,7 @@ if horas_estimadas > 0 and honorario > 0:
         - **⏱️ Custo-Hora Real ({brl(custo_hora)})** — custo médio por hora trabalhada.  
           > Fórmula: `Custo Total ÷ Horas Estimadas`
 
-        - **🎯 Ponto de Equilíbrio ({brl(ponto_equilibrio)})** — receita mínima para zerar o lucro.  
+        - **🎯 Ponto de Equilíbrio ({brl(ponto_equilibrio)})** — receita mínima para zerar a despesa.  
           > Fórmula: `Custo Total ÷ (Margem de Contribuição ÷ 100)`
 
         - **📊 Rentabilidade Ajustada ({rentabilidade_ajustada:.2f}%)** — lucro ponderado pelo risco de êxito.  
@@ -230,8 +230,7 @@ if horas_estimadas > 0 and honorario > 0:
 
         plt.tight_layout()
         st.pyplot(fig)
-        st.caption("Evolução: Honorário Bruto → (Desconto) → Custos Fixos e Variáveis → Lucro Líquido (barra final partindo do zero).")
+        st.caption("Evolução: Honorário Bruto → (Desconto) → Custos Fixos e Variáveis → Lucro Líquido.")
 
 else:
-    st.markdown("---")
     st.info("💤 Aguardando dados para gerar a análise. Insira valores de honorário, horas e custos para visualizar margens, rentabilidade e recomendações.")
